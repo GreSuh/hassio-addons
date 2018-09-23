@@ -8,7 +8,7 @@ RUN echo 'deb https://homegear.eu/packages/Raspbian/ stretch/' >> /etc/apt/sourc
 #RUN apt-get update && apt-get -y install ntp tzdata homegear homegear-nodes-core homegear-nodes-extra homegear-homematicbidcos homegear-homematicwired homegear-insteon homegear-max homegear-philipshue homegear-sonos homegear-kodi homegear-ipcam homegear-beckhoff homegear-knx homegear-enocean homegear-intertechno homegear-influxdb vim less htop
 RUN apt-get dist-upgrade
 RUN apt-get update && apt-get -y install ntp tzdata vim less htop pigpio gpiod  python3-rpi.gpio 
-RUN apt-get install `apt-cache depends homegear homegear-nodes-core homegear-nodes-extra homegear-max | awk '/Depends:/{print$2}'`
+RUN apt-get install `apt-cache depends homegear homegear-nodes-core homegear-nodes-extra homegear-max | awk '/Depends:/{print$2}'| grep -v homegear `
 RUN apt-get update && apt-get -y install homegear homegear-nodes-core homegear-nodes-extra homegear-max 
 RUN rm -f /etc/homegear/dh1024.pem
 RUN rm -f /etc/homegear/homegear.crt
