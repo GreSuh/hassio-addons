@@ -34,9 +34,9 @@ if ! [ -f /etc/homegear/dh1024.pem ]; then
 	chmod 400 /etc/homegear/dh1024.pem
 fi
 
-sudo echo 22 > /sys/class/gpio/export
-sudo echo out > /sys/class/gpio/gpio22/direction
-sudo echo 1 > /sys/class/gpio/gpio22/value
+echo 22 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio22/direction
+echo 1 > /sys/class/gpio/gpio22/value
 
 sleep 2
 
