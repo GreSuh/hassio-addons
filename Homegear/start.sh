@@ -58,7 +58,7 @@ echo 27 > /sys/class/gpio/unexport
 sleep 5
 
 
-
+ls -la /sys/class/gpio/*
 
 
 service homegear start
