@@ -6,6 +6,7 @@ RUN apt-get update && apt-get -y install apt-transport-https wget ca-certificate
 RUN wget https://homegear.eu/packages/Release.key && apt-key add Release.key && rm Release.key
 RUN echo 'deb https://homegear.eu/packages/Raspbian/ stretch/' >> /etc/apt/sources.list.d/homegear.list
 #RUN apt-get update && apt-get -y install ntp tzdata homegear homegear-nodes-core homegear-nodes-extra homegear-homematicbidcos homegear-homematicwired homegear-insteon homegear-max homegear-philipshue homegear-sonos homegear-kodi homegear-ipcam homegear-beckhoff homegear-knx homegear-enocean homegear-intertechno homegear-influxdb vim less htop
+RUN apt-get dist-upgrade
 RUN apt-get update && apt-get -y install ntp tzdata vim less htop pigpio gpiod  python3-rpi.gpio 
 RUN apt-get install `apt-cache depends homegear homegear-nodes-core homegear-nodes-extra homegear-max | awk '/Depends:/{print$2}'`
 RUN apt-get update && apt-get -y install homegear homegear-nodes-core homegear-nodes-extra homegear-max 
